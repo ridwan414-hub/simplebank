@@ -12,9 +12,11 @@ import (
 
 // CreateAccountParams defines the input fields for the CreateAccount function
 func createRandomAccount(t *testing.T)Account{
-		arg :=CreateAccountParams{
-		Owner: utils.RandomOwner(),
-		Balance : utils.RandomMoney(),
+	user := createRandomUser(t)
+
+	arg := CreateAccountParams{
+		Owner:    user.Username,
+		Balance:  utils.RandomMoney(),
 		Currency: utils.RandomCurrrency(),
 	}
 

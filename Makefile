@@ -29,6 +29,6 @@ server:
 	go run main.go
 
 migrationFile:
-	migrate create -ext sql -dir db/migration -seq add_user_table
+	migrate create -ext sql -dir db/migration -seq add_user
 
 .PHONY: postgres createdb dropdb migrateup migrateup1 migratedown migratedown1 sqlc server migrationFile
