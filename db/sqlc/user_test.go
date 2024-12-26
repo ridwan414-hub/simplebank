@@ -11,9 +11,12 @@ import (
 
 // CreateAccountParams defines the input fields for the CreateAccount function
 func createRandomUser(t *testing.T)User{
-		arg :=CreateUserParams{
+	hashedPassword,err := utils.HashPassword(utils.RandomString(6))
+	require.NoError(t,err)
+	
+	arg :=CreateUserParams{
 		Username: utils.RandomOwner(),
-		HashedPassword: "secret",
+		HashedPassword: hashedPassword,
 		FullName: utils.RandomOwner(),
 		Email: utils.RandomEmail(),
 	}
